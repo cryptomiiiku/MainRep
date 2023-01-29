@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+ 
+int& fun1(int a1, int& b1){
+     int t=a1; 
+     a1=b1; 
+     b1=t;
+     return b1;
+ }
+ 
+int& fun2(int& a2, int b2){
+    int t=a2; 
+    a2=b2; 
+    b2=t; 
+    return a2;
+ }
+
+ int main(){
+     int i=1, j=2;
+     fun2(fun1(i,j),fun2(i,j));
+     cout<<i<<" "<<j<<endl;
+     return 0;
+ }
